@@ -218,9 +218,7 @@ layer_2/tile_data = PackedInt32Array(327644, 262144, 9, 327645, 262144, 9, 32764
 
 [node name="Camera" type="Camera2D" parent="Knight" unique_id=1610856711]
 zoom = Vector2(7, 7)
-limit_enabled = false
 limit_bottom = 240
-position_smoothing_enabled = true
 
 [node name="Platforms" type="Node2D" parent="." unique_id=1971033232]
 

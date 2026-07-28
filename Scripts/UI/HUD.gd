@@ -1,10 +1,20 @@
 extends CanvasLayer
 
-@onready var HealthBar: TextureProgressBar = $ProgressBar
-var Health: int = 100
+@onready var HealthBar: TextureProgressBar = $Container/Health/ProgressBar
+@onready var Counter: Label = $Container/Coins/Counter
 
 func _ready():
-	HealthBar.value = Health
+	GameManager.changeHealth.connect(changeHealth)
+	GameManager.changeCoins.connect(addCoins)
+	
+	HealthBar.value = GameManager.Health
+	Counter.text = str(GameManager.Coins)
 
-func changeHealth(amount):
-	HealthBar.value = amount
+func changeHealth(NewHealth):
+	HealthBar.value = NewHealth
+	if NewHealth <= 0:
+		GameManager.resetGame()
+		get_tree().reload_current_scene()
+
+func addCoins(Coins):
+	Counter.text = str(Coins)

@@ -3,7 +3,6 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-var Health: int = 100
 var isAlive: bool = true
 
 @onready var Sprite: AnimatedSprite2D = $Sprite
@@ -29,18 +28,5 @@ func _physics_process(delta: float):
 		move_and_slide()
 
 func takeDamage(amount):
-	Health -= amount
-	$"../HUD".changeHealth(Health)
+	GameManager.takeDamage(amount)
 	Sprite.play("Hurt")
-	
-	if Health <= 0:
-		Sprite.play("Death")
-		await Sprite.animation_finished
-		isAlive = false
-		get_tree().reload_current_scene()
-
-func PowerUp(amount):
-	if Health >= 100:
-		pass
-	else:
-		Health += amount

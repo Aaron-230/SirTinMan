@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://b0xwx83fj0e7n" path="res://Assets/UI/Level Bars/00.png" id="1_omqfp"]
 [ext_resource type="Script" uid="uid://cvrs1vbxdiqt3" path="res://Scripts/UI/HUD.gd" id="1_xaom8"]
 [ext_resource type="Texture2D" uid="uid://cygqdeoe6n2tq" path="res://Assets/UI/Level Bars/04.png" id="2_qc5w2"]
+[ext_resource type="Texture2D" uid="uid://bnvtn7udpua78" path="res://Assets/Sprites/coin.png" id="4_ykvyr"]
+[ext_resource type="FontFile" uid="uid://dbg1ti8xdmgnh" path="res://Assets/UI/Fonts/BoldPixels/boldpixels.ttf" id="5_lelo4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qc5w2"]
 atlas = ExtResource("1_omqfp")
@@ -18,28 +20,48 @@ region = Rect2(0, 3.483673, 48.74701, 10.516327)
 atlas = ExtResource("2_qc5w2")
 region = Rect2(51, 6, 41.95735, 5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ree7"]
+atlas = ExtResource("4_ykvyr")
+region = Rect2(0, 0, 16, 16)
+
 [node name="HUD" type="CanvasLayer" unique_id=1384655610]
 script = ExtResource("1_xaom8")
 
-[node name="Health" type="HBoxContainer" parent="." unique_id=1882476876]
-offset_right = 100.0
+[node name="Container" type="VBoxContainer" parent="." unique_id=397971350]
+offset_right = 40.0
 offset_bottom = 40.0
-scale = Vector2(2, 2)
+scale = Vector2(5, 5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Heart" type="TextureRect" parent="Health" unique_id=505654397]
+[node name="Health" type="HBoxContainer" parent="Container" unique_id=1882476876]
+layout_mode = 2
+
+[node name="Heart" type="TextureRect" parent="Container/Health" unique_id=505654397]
 layout_mode = 2
 texture = SubResource("AtlasTexture_qc5w2")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=600492029]
-offset_left = 88.0
-offset_top = 20.0
-offset_right = 136.0
-offset_bottom = 30.0
-scale = Vector2(5, 5)
+[node name="ProgressBar" type="TextureProgressBar" parent="Container/Health" unique_id=600492029]
+layout_mode = 2
 size_flags_vertical = 4
 texture_under = SubResource("AtlasTexture_xaom8")
 texture_over = SubResource("AtlasTexture_4bm6u")
 texture_progress = SubResource("AtlasTexture_ykvyr")
 texture_progress_offset = Vector2(3, 3)
+
+[node name="Coins" type="HBoxContainer" parent="Container" unique_id=1095814032]
+layout_mode = 2
+
+[node name="Coin" type="TextureRect" parent="Container/Coins" unique_id=362916916]
+layout_mode = 2
+texture = SubResource("AtlasTexture_1ree7")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Counter" type="Label" parent="Container/Coins" unique_id=211901354]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_lelo4")
+text = "0"

@@ -30,9 +30,17 @@ func _physics_process(delta: float):
 
 func takeDamage(amount):
 	Health -= amount
+	$"../HUD".changeHealth(Health)
 	Sprite.play("Hurt")
 	
 	if Health <= 0:
 		Sprite.play("Death")
 		await Sprite.animation_finished
 		isAlive = false
+		get_tree().reload_current_scene()
+
+func PowerUp(amount):
+	if Health >= 100:
+		pass
+	else:
+		Health += amount

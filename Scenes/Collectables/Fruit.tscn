@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b3mtiyalk8cs4"]
+
+[ext_resource type="Script" uid="uid://bqufkpr5lv12b" path="res://Scripts/Others/Fruit.gd" id="1_pjsi0"]
+[ext_resource type="Texture2D" uid="uid://7l84ohvmhg7g" path="res://Assets/Sprites/fruit.png" id="2_pjsi0"]
+[ext_resource type="AudioStream" uid="uid://du1mm23evrele" path="res://Assets/Sounds/power_up.wav" id="3_pjsi0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6xf0"]
+atlas = ExtResource("2_pjsi0")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y41qh"]
+radius = 5.0
+
+[node name="Fruit" type="Area2D" unique_id=2127573581]
+script = ExtResource("1_pjsi0")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=207521269]
+texture = SubResource("AtlasTexture_d6xf0")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=894628852]
+shape = SubResource("CircleShape2D_y41qh")
+
+[node name="Sound" type="AudioStreamPlayer" parent="." unique_id=2103822473]
+stream = ExtResource("3_pjsi0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

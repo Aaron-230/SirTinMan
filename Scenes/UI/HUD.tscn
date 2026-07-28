@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://b7f0yxcpoleh8"]
+
+[ext_resource type="Texture2D" uid="uid://b0xwx83fj0e7n" path="res://Assets/UI/Level Bars/00.png" id="1_omqfp"]
+[ext_resource type="Script" uid="uid://cvrs1vbxdiqt3" path="res://Scripts/UI/HUD.gd" id="1_xaom8"]
+[ext_resource type="Texture2D" uid="uid://cygqdeoe6n2tq" path="res://Assets/UI/Level Bars/04.png" id="2_qc5w2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc5w2"]
+atlas = ExtResource("1_omqfp")
+region = Rect2(112.2774, 112.00177, 15.641869, 15.641876)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaom8"]
+atlas = ExtResource("2_qc5w2")
+region = Rect2(0, 3.483673, 48.74701, 10.516327)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bm6u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykvyr"]
+atlas = ExtResource("2_qc5w2")
+region = Rect2(51, 6, 41.95735, 5)
+
+[node name="HUD" type="CanvasLayer" unique_id=1384655610]
+script = ExtResource("1_xaom8")
+
+[node name="Health" type="HBoxContainer" parent="." unique_id=1882476876]
+offset_right = 100.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+
+[node name="Heart" type="TextureRect" parent="Health" unique_id=505654397]
+layout_mode = 2
+texture = SubResource("AtlasTexture_qc5w2")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=600492029]
+offset_left = 88.0
+offset_top = 20.0
+offset_right = 136.0
+offset_bottom = 30.0
+scale = Vector2(5, 5)
+size_flags_vertical = 4
+texture_under = SubResource("AtlasTexture_xaom8")
+texture_over = SubResource("AtlasTexture_4bm6u")
+texture_progress = SubResource("AtlasTexture_ykvyr")
+texture_progress_offset = Vector2(3, 3)

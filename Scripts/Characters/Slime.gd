@@ -12,6 +12,9 @@ var canAttack = true
 @onready var Sprite: AnimatedSprite2D = $Sprite
 @onready var AttackTimer: Timer = $AttackTimer
 
+@onready var WallDetectionLeft: RayCast2D = $Raycasts/WallDetectionLeft
+@onready var WallDetectionRight: RayCast2D = $Raycasts/WallDetectionRight
+
 func _physics_process(delta: float):
 	Sprite.play("Idle")
 	
@@ -28,6 +31,8 @@ func _physics_process(delta: float):
 		if direction:
 			velocity.x = direction.x * SPEED
 			Sprite.flip_h = true if velocity.x < 0 else false
+		elif WallDetectionLeft.is_colliding() or WallDetectionRight.is_colliding():
+			velocity.y = JUMP_VELOCITY
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 	

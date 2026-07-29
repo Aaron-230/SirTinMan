@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://pjvw7p1em6d3"]
+
+[ext_resource type="Script" uid="uid://cfegjg5xekgdi" path="res://Scripts/UI/UI.gd" id="1_636u5"]
+[ext_resource type="FontFile" uid="uid://dbg1ti8xdmgnh" path="res://Assets/UI/Fonts/BoldPixels/boldpixels.ttf" id="1_s86y4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s86y4"]
+bg_color = Color(0.18039216, 0.18039216, 0.18039216, 1)
+
+[sub_resource type="Animation" id="Animation_636u5"]
+resource_name = "Fade"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro:theme_override_styles/panel:bg_color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.3277778, 0.16666669, 0, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Intro/Label:theme_override_colors/font_color:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, 0, 0, 0.31666666, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+
+[sub_resource type="Animation" id="Animation_akgwn"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro:theme_override_styles/panel:bg_color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Intro/Label:theme_override_colors/font_color:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b83rk"]
+_data = {
+&"Fade": SubResource("Animation_636u5"),
+&"RESET": SubResource("Animation_akgwn")
+}
+
+[node name="UI" type="CanvasLayer" unique_id=267079414]
+process_mode = 3
+script = ExtResource("1_636u5")
+
+[node name="Intro" type="Panel" parent="." unique_id=1202846777]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s86y4")
+
+[node name="Label" type="Label" parent="Intro" unique_id=1596553646]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_s86y4")
+theme_override_font_sizes/font_size = 64
+text = "Level : "
+
+[node name="Pause" type="Panel" parent="." unique_id=808371186]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="Pause" unique_id=1694286901]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.5
+offset_top = -46.5
+offset_right = 106.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Pause/Container" unique_id=2003797950]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s86y4")
+theme_override_font_sizes/font_size = 64
+text = "You have paused the game!"
+
+[node name="Resume" type="Button" parent="Pause/Container" unique_id=644647823]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s86y4")
+theme_override_font_sizes/font_size = 32
+text = "Resume Game!"
+
+[node name="Exit" type="Button" parent="Pause/Container" unique_id=1169194282]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s86y4")
+theme_override_font_sizes/font_size = 32
+text = "Exit Game!"
+
+[node name="End" type="Panel" parent="." unique_id=1278483386]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="End" unique_id=716323408]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -46.5
+offset_right = 134.0
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="End/Container" unique_id=411249713]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s86y4")
+theme_override_font_sizes/font_size = 32
+text = "Congrats! You have finished Level: "
+
+[node name="Next" type="Button" parent="End/Container" unique_id=1054014323]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s86y4")
+theme_override_font_sizes/font_size = 32
+text = "Next Level!"
+
+[node name="Exit" type="Button" parent="End/Container" unique_id=1732846126]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s86y4")
+theme_override_font_sizes/font_size = 32
+text = "Exit Game!"
+
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=1659443450]
+libraries/ = SubResource("AnimationLibrary_b83rk")
+
+[connection signal="pressed" from="Pause/Container/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Pause/Container/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="End/Container/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="End/Container/Exit" to="." method="_on_exit_pressed"]

@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://b7f0yxcpoleh8" path="res://Scenes/UI/HUD.tscn" id="6_75qqu"]
 [ext_resource type="PackedScene" uid="uid://b3mtiyalk8cs4" path="res://Scenes/Collectables/Fruit.tscn" id="6_t07gs"]
 [ext_resource type="Script" uid="uid://c1fm13qmrnh1y" path="res://Scripts/Others/Killzone.gd" id="7_8r5np"]
+[ext_resource type="PackedScene" uid="uid://pjvw7p1em6d3" path="res://Scenes/UI/UI.tscn" id="9_lnb5r"]
+[ext_resource type="PackedScene" uid="uid://oyxyxhe58uep" path="res://Scenes/UI/TouchControl.tscn" id="10_1241g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6u60d"]
 texture = ExtResource("1_3gigh")
@@ -201,6 +203,9 @@ _data = {
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t07gs"]
 distance = -136.0
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnb5r"]
+normal = Vector2(-1, 0)
+
 [node name="Level-1" type="Node2D" unique_id=1739561405]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=309169174]
@@ -271,6 +276,20 @@ script = ExtResource("7_8r5np")
 [node name="CollisionShape" type="CollisionShape2D" parent="Killzone" unique_id=136071994]
 shape = SubResource("WorldBoundaryShape2D_t07gs")
 
+[node name="Finish" type="Area2D" parent="." unique_id=950826766]
+position = Vector2(1584, -156)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Finish" unique_id=871133438]
+shape = SubResource("WorldBoundaryShape2D_lnb5r")
+
 [node name="HUD" parent="." unique_id=1384655610 instance=ExtResource("6_75qqu")]
 
+[node name="UI" parent="." unique_id=267079414 instance=ExtResource("9_lnb5r")]
+nextScene = "uid://meq8i1a4eenb"
+LevelName = "The Plain Plains"
+LevelNo = 1
+
+[node name="Touch Control" parent="." unique_id=814279933 instance=ExtResource("10_1241g")]
+
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
+[connection signal="body_entered" from="Finish" to="UI" method="_on_finish_body_entered"]

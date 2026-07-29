@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://oyxyxhe58uep"]
+
+[ext_resource type="Script" uid="uid://ckxmt8a1yv6fx" path="res://Scripts/UI/TouchControl.gd" id="1_8jqgn"]
+[ext_resource type="Texture2D" uid="uid://bl0tyfsa348qv" path="res://Assets/UI/MobileControls/gdb-switch-2.png" id="1_ap1xy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jqgn"]
+bg_color = Color(0.6, 0.6, 0.6, 0.078431375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jqgn"]
+atlas = ExtResource("1_ap1xy")
+region = Rect2(256, 432, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3gaa"]
+atlas = ExtResource("1_ap1xy")
+region = Rect2(256, 464, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uaema"]
+atlas = ExtResource("1_ap1xy")
+region = Rect2(240, 416, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k87sk"]
+atlas = ExtResource("1_ap1xy")
+region = Rect2(176, 432, 16, 16)
+
+[node name="Touch Control" type="CanvasLayer" unique_id=814279933]
+script = ExtResource("1_8jqgn")
+
+[node name="Panel" type="Panel" parent="." unique_id=1401788533]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8jqgn")
+
+[node name="Main" type="HBoxContainer" parent="Panel" unique_id=1090850869]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Right" type="TouchScreenButton" parent="Panel/Main" unique_id=1673786034]
+position = Vector2(-120.99999, -122.99999)
+scale = Vector2(10, 10)
+texture_normal = SubResource("AtlasTexture_8jqgn")
+action = "Right"
+
+[node name="Left" type="TouchScreenButton" parent="Panel/Main" unique_id=337386162]
+position = Vector2(-275, -123)
+scale = Vector2(10, 10)
+texture_normal = SubResource("AtlasTexture_v3gaa")
+action = "Left"
+
+[node name="Secondary" type="HBoxContainer" parent="Panel" unique_id=1039480079]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Jump" type="TouchScreenButton" parent="Panel/Secondary" unique_id=416788369]
+position = Vector2(0, -123)
+scale = Vector2(10, 10)
+texture_normal = SubResource("AtlasTexture_uaema")
+action = "Jump"
+
+[node name="Pause" type="BoxContainer" parent="Panel" unique_id=2017119263]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_top = 127.656006
+offset_right = -162.432
+grow_horizontal = 0
+
+[node name="Jump" type="TouchScreenButton" parent="Panel/Pause" unique_id=1424404943]
+position = Vector2(0, -123)
+scale = Vector2(10, 10)
+texture_normal = SubResource("AtlasTexture_k87sk")
+action = "Pause"

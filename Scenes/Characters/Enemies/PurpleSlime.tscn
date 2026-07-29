@@ -103,6 +103,16 @@ shape = SubResource("RectangleShape2D_ilfcb")
 [node name="CollisionShape" type="CollisionShape2D" parent="Sight" unique_id=792825688]
 shape = SubResource("CircleShape2D_bsihk")
 
+[node name="AttackTimer" type="Timer" parent="." unique_id=2111784662]
+
+[node name="Raycasts" type="Node2D" parent="." unique_id=870503540]
+
+[node name="WallDetectionLeft" type="RayCast2D" parent="Raycasts" unique_id=338699686]
+target_position = Vector2(-25, 0)
+
+[node name="WallDetectionRight" type="RayCast2D" parent="Raycasts" unique_id=162136421]
+target_position = Vector2(25, 0)
+
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
 [connection signal="body_entered" from="Sight" to="." method="_on_sight_body_entered"]

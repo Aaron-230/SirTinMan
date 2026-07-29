@@ -164,4 +164,6 @@ format = 2
 
 [node name="Knight" parent="." unique_id=1512691136 instance=ExtResource("2_h2dqa")]
 
-[node name="Camera" type="Camera2D" parent="Knight" unique_id=1610856711]
+[node name="Camera" type="Camera2D" parent="Knight" unique_id=630913419]
+zoom = Vector2(7, 7)
+limit_bottom = 240

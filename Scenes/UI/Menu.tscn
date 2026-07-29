@@ -14,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_353f8")
+nextScene = "uid://bq71ttvcs8mnr"
 
 [node name="Background" type="VideoStreamPlayer" parent="." unique_id=800548058]
 layout_mode = 1

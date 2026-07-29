@@ -307,19 +307,18 @@ position = Vector2(2913, 47)
 shape = SubResource("WorldBoundaryShape2D_vuq4j")
 
 [node name="HUD" parent="." unique_id=1384655610 instance=ExtResource("4_l5k2p")]
-visible = false
 
 [node name="UI" parent="." unique_id=267079414 instance=ExtResource("5_o7d5v")]
-visible = false
 nextScene = "uid://0p535t3omqt2"
 LevelName = "The Cold Winters"
 LevelNo = 4
 
 [node name="Touch Control" parent="." unique_id=814279933 instance=ExtResource("6_8gota")]
-visible = false
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=711768848]
 stream = ExtResource("7_hcaby")
 autoplay = true
 
+[connection signal="body_entered" from="Fruits/Fruit4" to="Knight" method="_on_fruit_4_body_entered"]
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
+[connection signal="body_entered" from="Finish" to="UI" method="_on_finish_body_entered"]

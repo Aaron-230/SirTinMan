@@ -461,3 +461,4 @@ stream = ExtResource("11_8yefm")
 autoplay = true
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
+[connection signal="body_entered" from="Finish" to="UI" method="_on_finish_body_entered"]

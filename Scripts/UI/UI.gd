@@ -40,3 +40,7 @@ func _on_next_pressed() -> void:
 func _on_finish_body_entered(body: Node2D):
 	if body.is_in_group("Player"):
 		finished()
+
+
+func _on_finish_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	pass # Replace with function body.

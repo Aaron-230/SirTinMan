@@ -2,6 +2,9 @@
 
 [ext_resource type="FontFile" uid="uid://dbg1ti8xdmgnh" path="res://Assets/UI/Fonts/BoldPixels/boldpixels.ttf" id="1_1a1nu"]
 [ext_resource type="Script" uid="uid://1cxx40yuix83" path="res://Scripts/UI/End.gd" id="1_2jm3s"]
+[ext_resource type="VideoStream" uid="uid://clv2btflj7nud" path="res://Assets/Videos/End.ogv" id="2_7isid"]
+[ext_resource type="Texture2D" uid="uid://05mapl80ore6" path="res://Assets/Logo.png" id="3_vhrml"]
+[ext_resource type="AudioStream" uid="uid://dpv7i5rxtpopn" path="res://Assets/Music/End.mp3" id="5_vhrml"]
 
 [node name="End" type="CanvasLayer" unique_id=1143782918]
 script = ExtResource("1_2jm3s")
@@ -12,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+stream = ExtResource("2_7isid")
 autoplay = true
 expand = true
 loop = true
@@ -39,11 +43,16 @@ grow_vertical = 2
 
 [node name="Logo" type="TextureRect" parent="Panel/Container" unique_id=1379877298]
 layout_mode = 2
+texture = ExtResource("3_vhrml")
 
 [node name="End" type="Button" parent="Panel/Container" unique_id=115999732]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_1a1nu")
 theme_override_font_sizes/font_size = 32
 text = "End Game!"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1065904796]
+stream = ExtResource("5_vhrml")
+autoplay = true
 
 [connection signal="pressed" from="Panel/Container/End" to="." method="_on_end_pressed"]

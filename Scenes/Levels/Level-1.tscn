@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://c1fm13qmrnh1y" path="res://Scripts/Others/Killzone.gd" id="7_8r5np"]
 [ext_resource type="PackedScene" uid="uid://pjvw7p1em6d3" path="res://Scenes/UI/UI.tscn" id="9_lnb5r"]
 [ext_resource type="PackedScene" uid="uid://oyxyxhe58uep" path="res://Scenes/UI/TouchControl.tscn" id="10_1241g"]
+[ext_resource type="AudioStream" uid="uid://d1pvtcu8pufi3" path="res://Assets/Music/1.mp3" id="11_ii8d5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6u60d"]
 texture = ExtResource("1_3gigh")
@@ -290,6 +291,10 @@ LevelName = "The Plain Plains"
 LevelNo = 1
 
 [node name="Touch Control" parent="." unique_id=814279933 instance=ExtResource("10_1241g")]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=791951164]
+stream = ExtResource("11_ii8d5")
+autoplay = true
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
 [connection signal="body_entered" from="Finish" to="UI" method="_on_finish_body_entered"]

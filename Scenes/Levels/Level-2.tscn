@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b3mtiyalk8cs4" path="res://Scenes/Collectables/Fruit.tscn" id="5_83jt6"]
 [ext_resource type="PackedScene" uid="uid://pjvw7p1em6d3" path="res://Scenes/UI/UI.tscn" id="5_bomoa"]
 [ext_resource type="PackedScene" uid="uid://oyxyxhe58uep" path="res://Scenes/UI/TouchControl.tscn" id="6_wgrye"]
+[ext_resource type="AudioStream" uid="uid://dw1d7ut0vhhpo" path="res://Assets/Music/2.mp3" id="11_8yefm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6u60d"]
 texture = ExtResource("1_ftquo")
@@ -454,5 +455,9 @@ LevelName = "The Sandy Sandlands"
 LevelNo = 2
 
 [node name="Touch Control" parent="." unique_id=814279933 instance=ExtResource("6_wgrye")]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1263946171]
+stream = ExtResource("11_8yefm")
+autoplay = true
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]

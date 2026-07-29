@@ -11,7 +11,9 @@ config_version=5
 [application]
 
 config/name="Sir Tin Man"
+run/main_scene="uid://b40ta1bcgnxf4"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="uid://05mapl80ore6"
 
 [autoload]
 
